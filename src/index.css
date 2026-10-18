@@ -1,0 +1,276 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #111111;
+  --color-ink-soft: #1a1a1a;
+  --color-ivory: #f2f0eb;
+  --color-gold: #c49f3e;
+  --color-gold-dark: #a9842f;
+  --color-grey: #9a968d;
+  --color-grey-dark: #6f6b62;
+  --font-display: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-display);
+  background-color: var(--color-ivory);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* ---------- Layout ---------- */
+.gutter {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+@media (min-width: 768px) {
+  .gutter {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media (min-width: 1280px) {
+  .gutter {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+
+.wrap {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.section-dark {
+  background-color: var(--color-ink);
+  color: var(--color-ivory);
+  --divider-color: rgba(242, 240, 235, 0.12);
+  --muted: rgba(242, 240, 235, 0.55);
+}
+
+.section-light {
+  background-color: var(--color-ivory);
+  color: var(--color-ink);
+  --divider-color: rgba(17, 17, 17, 0.12);
+  --muted: rgba(17, 17, 17, 0.55);
+}
+
+.divider {
+  border-top: 1px solid var(--divider-color);
+}
+.divider-b {
+  border-bottom: 1px solid var(--divider-color);
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+/* ---------- Typography ---------- */
+.heading {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.98;
+}
+
+.heading-xl {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.035em;
+  line-height: 0.96;
+  font-size: clamp(2.4rem, 6vw, 4.6rem);
+}
+
+.heading-lg {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  font-size: clamp(2rem, 4.2vw, 3.2rem);
+}
+
+.heading-md {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+}
+
+.tone-grey {
+  color: var(--color-grey);
+}
+.section-dark .tone-grey {
+  color: #87827a;
+}
+
+.body-text {
+  font-weight: 400;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 1.2vw, 1.2rem);
+  line-height: 1.7;
+  max-width: 62ch;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: var(--color-gold);
+}
+
+.eyebrow-dot::before {
+  content: "\00b7";
+  display: inline;
+  width: auto;
+  height: auto;
+  background: none;
+  color: var(--color-gold);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 28px;
+  min-height: 44px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 0;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--color-gold);
+  color: var(--color-ink);
+  border: 1px solid var(--color-gold);
+}
+.btn-primary:hover {
+  background-color: var(--color-gold-dark);
+  border-color: var(--color-gold-dark);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold);
+}
+.btn-secondary:hover {
+  background-color: rgba(196, 159, 62, 0.1);
+}
+
+/* ---------- Numbered rows ---------- */
+.num {
+  font-weight: 200;
+  color: var(--color-gold);
+  line-height: 1;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* ---------- Ticker ---------- */
+.ticker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ticker .slash {
+  color: var(--color-gold);
+}
+
+/* ---------- Reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Image hover zoom ---------- */
+.img-zoom {
+  overflow: hidden;
+  display: block;
+}
+.img-zoom img {
+  transition: transform 0.6s ease;
+}
+.img-zoom:hover img {
+  transform: scale(1.06);
+}
+
+/* ---------- Scrollbar for chip rows ---------- */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ---------- Mobile menu animations ---------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
